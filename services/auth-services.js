@@ -7,6 +7,7 @@ const UserRole = require("../db/models/user_roles.js")(sequelize, Sequelize);
 const Role = require("../db/models/roles.js")(sequelize, Sequelize);
 
 const hash = require("bcrypt");
+
 const db = require("../db/models");
 
 class authServices {
@@ -18,7 +19,6 @@ class authServices {
     const hashedPassword = await hash.hash(password, 10);
 
     const data = {
-      name: name,
       email: email,
       password: hashedPassword,
     };
